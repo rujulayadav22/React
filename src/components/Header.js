@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
-import useOnlineStatus from "../utils/useOnlinestatus";
+import useOnlineStatus from "../utils/useOnlineStatus"; 
 import UserContext from "../utils/UserContext";
 import { useSelector } from "react-redux";
 
@@ -11,11 +11,13 @@ const Header = () => {
   const onlineStatus = useOnlineStatus();
   const { loggedInUser } = useContext(UserContext);
 
-  //subscribing to the store using a Selector//
-  const cartItems =useSelector((store) => store.cart.items);
+  // subscribing to the store using a Selector
+  const cartItems = useSelector((store) => store.cart.items);
 
   return (
     <div className="flex items-center px-12 py-[14px] bg-white border-b border-[#f0f0f0]">
+      
+      {/* Logo */}
       <div className="w-[150px]">
         <img
           src={LOGO_URL}
@@ -24,15 +26,18 @@ const Header = () => {
         />
       </div>
 
+      {/* Search */}
       <div className="flex justify-center flex-1">
         <div className="w-[80%]">
           <Search />
         </div>
       </div>
 
+      {/* Navigation */}
       <div className="nav">
         <div className="flex">
           <ul className="flex items-center gap-8">
+
             <li className="text-[16px] font-medium text-gray-600">
               {onlineStatus ? "🟢 Online" : "🔴 Offline"}
             </li>
@@ -64,7 +69,7 @@ const Header = () => {
                 to="/cart"
                 className="text-[19px] font-medium cursor-pointer text-gray-600 hover:!text-[#ef4f5f]"
               >
-                Cart({cartItems.length}items)
+                Cart({cartItems.length} items)
               </Link>
             </li>
 
@@ -85,6 +90,7 @@ const Header = () => {
             >
               {btnNameReact}
             </button>
+
           </ul>
         </div>
       </div>
@@ -95,6 +101,7 @@ const Header = () => {
 const Search = () => {
   return (
     <div className="search-bar flex items-center bg-white px-[18px] py-[16px] rounded-[14px] w-full shadow-[2px_2px_2px_2px_rgba(0,0,0,0.08)] mb-[5px]">
+      
       <div className="location flex items-center gap-[6px] font-medium text-[#ef4f5f]">
         <img
           className="location-icon w-[20px] h-[20px] object-contain"
@@ -118,6 +125,7 @@ const Search = () => {
           className="border-none outline-none w-full text-[15px]"
         />
       </div>
+
     </div>
   );
 };
