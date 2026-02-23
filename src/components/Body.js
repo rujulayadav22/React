@@ -2,7 +2,7 @@ import Restaurantcard, { withPromoted } from "./Restaurantcard";
 import { useEffect, useState, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
-import useOnlinestatus from "../utils/useOnlineStatus";
+import useOnlineStatus from "../utils/useOnlinestatus";
 import UserContext from "../utils/UserContext";
 
 const PromotedRestaurantCard = withPromoted(Restaurantcard);
