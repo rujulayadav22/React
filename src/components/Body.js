@@ -2,7 +2,7 @@ import Restaurantcard, { withPromoted } from "./Restaurantcard";
 import { useEffect, useState, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
-import useOnlineStatus from "../utils/useOnlinestatus";
+import useOnlineStatus from "../utils/useOnlineStatus"; 
 import UserContext from "../utils/UserContext";
 
 const PromotedRestaurantCard = withPromoted(Restaurantcard);
@@ -12,10 +12,10 @@ const Body = () => {
   const [filterRes, setFilterRes] = useState([]);
   const [searchText, setSearchText] = useState("");
 
-  const Onlinestatus = useOnlinestatus();
+  const onlineStatus = useOnlineStatus(); // ✅ Correct function call
   const { loggedInUser, setUserName } = useContext(UserContext);
 
-  if (Onlinestatus === false) {
+  if (onlineStatus === false) { // ✅ Correct variable
     return (
       <div className="text-center mt-20 text-xl">
         Looks like you are Offline!
@@ -105,7 +105,7 @@ const Body = () => {
           </div>
         </div>
 
-      </div> {/* ✅ THIS WAS MISSING */}
+      </div>
 
       {/* 🔹 Heading */}
       <div className="text-[38px] font-extrabold text-[#1c1c1c] mb-10">
