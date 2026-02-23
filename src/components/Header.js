@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
-import useOnlineStatus from "../utils/useOnlineStatus";
+import useOnlineStatus from "../utils/useOnlinestatus";
 import UserContext from "../utils/UserContext";
 import { useSelector } from "react-redux";
 
